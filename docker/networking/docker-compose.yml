@@ -1,0 +1,33 @@
+version: '2'
+services:
+    a:
+      image: tutum/hello-world
+      networks:
+        - frontend
+        - jonsuperbridge
+      external_links:
+        - hello:h
+      links:
+        - b:bee
+        - c:cee
+    b:
+      image: tutum/hello-world
+      networks:
+         frontend:
+           aliases:
+             - web
+         backend:
+           aliases:
+             - website
+    c:
+      image: tutum/hello-world
+      networks:
+        - backend
+
+networks:
+  frontend:
+    driver: bridge
+  backend:
+    driver: bridge
+  jonsuperbridge:
+    external: true
