@@ -58,7 +58,6 @@ Esc - exit visual mode
 
 ## Visual commands
 
-
 > - shift right
 < - shift left
 y - yank (copy) marked text
